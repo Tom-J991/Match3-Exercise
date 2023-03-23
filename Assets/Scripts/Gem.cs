@@ -50,8 +50,8 @@ public class Gem : MonoBehaviour, IPointerDownHandler
                 {
                     SwapSprite(_prevSelected);
                     _prevSelected.ClearAllMatches();
-                    _prevSelected.Deselect();
                     ClearAllMatches();
+                    _prevSelected.Deselect();
                 }
                 else
                 {
@@ -152,6 +152,11 @@ public class Gem : MonoBehaviour, IPointerDownHandler
             StopCoroutine(gameInstance.FindNullTiles());
             StartCoroutine(gameInstance.FindNullTiles());
             _matchFound = false;
+        }
+        else
+        {
+            if (_prevSelected != null)
+                SwapSprite(_prevSelected);
         }
     }
 
